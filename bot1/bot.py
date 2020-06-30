@@ -4,11 +4,11 @@ import config
 
 from telebot import types
 
-bot = telebot.TeleBot(const.TOKEN)
+bot = telebot.TeleBot(config.TOKEN)
 
 # Добавляем обработчик сообщений, который проверяет команды, в нашем случае это команда /start
 @bot.message_handler(commands=['start'])
-def startpg(message):
+def startpage(message):
     # Создаем клавиатуру, с единственной кнопкой "Начать"
     startmenu = types.ReplyKeyboardMarkup(True, True)
     startmenu.row('Начать')
@@ -17,7 +17,7 @@ def startpg(message):
 
 #Добавляем обработчик сообщений, который проверяет тип сообщения "Текст"
 @bot.message_handler(content_types=['text'])
-def osnov(message):
+def main(message):
     # Проверяем какое сообщение нам пришло, на русском языке код выглядит так "Если текст который отправил пользователь РАВЕН СЛОВУ "Начать", то у нас будет выполняться это действие"
     if message.text == 'Начать':
         # Мы присваиваем переменной "send" метод "Отправка сообщения"
@@ -26,52 +26,52 @@ def osnov(message):
         bot.register_next_step_handler(send, next1)
     # Проверяем какое сообщение нам пришло, на русском языке код выглядит так "Если текст который отправил пользователь РАВЕН СЛОВУ "Бизнес", то у нас будет выполняться это действие"
     elif message.text == 'Бизнес':
-        if biznes == 'biznes':
+        if business == 'business':
             # Создаем клавиатуру
-            vibor1 = types.ReplyKeyboardMarkup(True, False)
-            vibor1.row('Курс1')
-            vibor1.row('Курс2')
-            vibor1.row('Курс3')
-            vibor1.row('Курс4')
-            vibor1.row('Назад')
+            option1 = types.ReplyKeyboardMarkup(True, False)
+            option1.row('Курс1')
+            option1.row('Курс2')
+            option1.row('Курс3')
+            option1.row('Курс4')
+            option1.row('Назад')
             # Отправляем сообщение и отправляем подключение клавиатуры
-            bot.send_message(message.chat.id, 'Выберите курс:', reply_markup=vibor1)
+            bot.send_message(message.chat.id, 'Выберите курс:', reply_markup=option1)
     # Проверяем какое сообщение нам пришло, на русском языке код выглядит так "Если текст который отправил пользователь РАВЕН СЛОВУ "Программирование", то у нас будет выполняться это действие"
     elif message.text == 'Программирование':
-        if biznes == 'biznes':
+        if business == 'business':
             # Создаем клавиатуру
-            vibor2 = types.ReplyKeyboardMarkup(True, False)
-            vibor2.row('C#')
-            vibor2.row('Python')
-            vibor2.row('C++')
-            vibor2.row('Delphi')
-            vibor2.row('Назад')
+            option2 = types.ReplyKeyboardMarkup(True, False)
+            option2.row('C#')
+            option2.row('Python')
+            option2.row('C++')
+            option2.row('Delphi')
+            option2.row('Назад')
             # Отправляем сообщение и отправляем подключение клавиатуры
-            bot.send_message(message.chat.id, 'Выберите язык программирования:', reply_markup=vibor2)
+            bot.send_message(message.chat.id, 'Выберите язык программирования:', reply_markup=option2)
     # Проверяем какое сообщение нам пришло, на русском языке код выглядит так "Если текст который отправил пользователь РАВЕН СЛОВУ "Лайфаки", то у нас будет выполняться это действие"
     elif message.text == 'Лайфаки':
-        if biznes == 'biznes':
+        if business == 'business':
             # Создаем клавиатуру
-            vibor3 = types.ReplyKeyboardMarkup(True, False)
-            vibor3.row('Лайфак1')
-            vibor3.row('Лайфак2')
-            vibor3.row('Лайфак3')
-            vibor3.row('Лайфак4')
-            vibor3.row('Назад')
+            option3 = types.ReplyKeyboardMarkup(True, False)
+            option3.row('Лайфак1')
+            option3.row('Лайфак2')
+            option3.row('Лайфак3')
+            option3.row('Лайфак4')
+            option3.row('Назад')
             # Отправляем сообщение и отправляем подключение клавиатуры
-            bot.send_message(message.chat.id, 'Выберите лайфак:', reply_markup=vibor3)
+            bot.send_message(message.chat.id, 'Выберите лайфак:', reply_markup=option3)
     # Проверяем какое сообщение нам пришло, на русском языке код выглядит так "Если текст который отправил пользователь РАВЕН СЛОВУ "Фитнес", то у нас будет выполняться это действие"
     elif message.text == 'Фитнес':
-        if biznes == 'biznes':
+        if business == 'business':
             # Создаем клавиатуру
-            vibor4 = types.ReplyKeyboardMarkup(True, False)
-            vibor4.row('Питание')
-            vibor4.row('Упражнения')
-            vibor4.row('Пресс')
-            vibor4.row('Фитнес клубы')
-            vibor4.row('Назад')
+            option4 = types.ReplyKeyboardMarkup(True, False)
+            option4.row('Питание')
+            option4.row('Упражнения')
+            option4.row('Пресс')
+            option4.row('Фитнес клубы')
+            option4.row('Назад')
             # Отправляем сообщение и отправляем подключение клавиатуры
-            bot.send_message(message.chat.id, 'Выберите:', reply_markup=vibor4)
+            bot.send_message(message.chat.id, 'Выберите:', reply_markup=option4)
     # Проверяем какое сообщение нам пришло, на русском языке код выглядит так "Если текст который отправил пользователь РАВЕН СЛОВУ "Назал", то у нас будет выполняться это действие"
     elif message.text == 'Назад':
         # Так делается, для того, чтобы перейти к фукнции с назаваением "next2"
@@ -86,16 +86,16 @@ def next1(message):
 
 # Создаем функцию, для того, чтобы ответить на сообщение "Очень приятно {name},Введите ваш возвраст:"
 def next2(message):
-    global biznes
-    biznes = 'biznes'
+    global business
+    business = 'business'
     # Создаем клавиатуру
-    vibor = types.ReplyKeyboardMarkup(True, False)
-    vibor.row('Бизнес')
-    vibor.row('Программирование')
-    vibor.row('Лайфаки')
-    vibor.row('Фитнес')
+    option = types.ReplyKeyboardMarkup(True, False)
+    option.row('Бизнес')
+    option.row('Программирование')
+    option.row('Лайфаки')
+    option.row('Фитнес')
     # Отправляем сообщение и отправляем подключение клавиатур
-    bot.send_message(message.chat.id, 'Хорошо, выберите тематику курсов?', reply_markup=vibor)
+    bot.send_message(message.chat.id, 'Хорошо, выберите тематику курсов?', reply_markup=option)
 
 
 bot.polling()
